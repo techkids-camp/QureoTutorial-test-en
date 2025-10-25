@@ -7,7 +7,7 @@ namespace hiragana_agent {
     //% blockId=hiragana_agent_8
     //% block="agent teleport to player"
     export function teleportToPlayer(): void {
-        agent.teleportToPlayer();
+        return agent.teleportToPlayer();
     }
 
     //% blockId=hiragana_agent_7
@@ -27,18 +27,18 @@ namespace hiragana_agent {
     export function teleport(t_pos: Position): void {
         let agentTrune: CompassDirection
         let agentOrient = agent.getOrientation()
-        if (agentOrient == 0) {
+        if (agentOrient == 0){
             agentTrune = SOUTH
-        } else if (agentOrient == -180) {
+        }else if (agentOrient == -180){
             agentTrune = NORTH
-        } else if (agentOrient == -90) {
+        }else if (agentOrient == -90){
             agentTrune = EAST
-        } else if (agentOrient == 90) {
+        }else if (agentOrient == 90){
             agentTrune = WEST
         } else {
             agentTrune = SOUTH
         }
-        agent.teleport(positions.add(agent.getPosition(), t_pos), agentTrune);
+        return agent.teleport(positions.add(agent.getPosition(),t_pos), agentTrune);
     }
 
     //% blockId=hiragana_agent_4
@@ -50,19 +50,19 @@ namespace hiragana_agent {
     //% blockId=hiragana_agent_3
     //% block="agent destroy $direction"
     export function destroy(direction: SixDirection): void {
-        agent.destroy(direction);
+        return agent.destroy(direction);
     }
 
     //% blockId=hiragana_agent_2
     //% block="agent place $direction"
     export function place(direction: SixDirection): void {
-        agent.place(direction);
+        return agent.place(direction);
     }
 
     //% blockId=hiragana_agent_1
     //% block="agent turn $direction"
     export function turn(direction: TurnDirection): void {
-        agent.turn(direction);
+        return agent.turn(direction);
     }
 
 
@@ -70,12 +70,12 @@ namespace hiragana_agent {
     //% block="agent move $direction by $blocks"
     //% blocks.defl=1
     export function move(direction: SixDirection, blocks: number): void {
-        agent.move(direction, blocks);
+        return agent.move(direction, blocks);
     }
 
     //% blockID=hiragana_agent_9
     //% block="agent place minecart"
     export function placeMineCart(): void {
-        player.execute("execute @c ~~~ summon minecart");
+        return player.execute("execute @c ~~~ summon minecart");
     }
 }
